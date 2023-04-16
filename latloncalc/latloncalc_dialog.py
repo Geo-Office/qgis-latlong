@@ -27,6 +27,7 @@ import os
 from qgis.PyQt import uic
 from qgis.PyQt import QtWidgets
 
+
 # This loads your .ui file so that PyQt can populate your plugin with the elements from Qt Designer
 FORM_CLASS, _ = uic.loadUiType(os.path.join(
     os.path.dirname(__file__), 'latloncalc_dialog_base.ui'))
@@ -42,3 +43,33 @@ class LatLongCalcDialog(QtWidgets.QDialog, FORM_CLASS):
         # http://qt-project.org/doc/qt-4.8/designer-using-a-ui-file.html
         # #widgets-and-dialogs-with-auto-connect
         self.setupUi(self)
+
+        self.sbLatD.valueChanged.connect(self.latDMStoDD)
+        self.sbLatM.valueChanged.connect(self.latDMStoDD)
+        self.sbLatS.valueChanged.connect(self.latDMStoDD)
+        
+        self.sbLonD.valueChanged.connect(self.lonDMStoDD)
+        self.sbLonM.valueChanged.connect(self.lonDMStoDD)
+        self.sbLonS.valueChanged.connect(self.lonDMStoDD)   
+        
+        self.dsbLatDD.valueChanged.connect(self.DDtoLatDMS)
+        #self.dsbLonDD.editingFinished.connect(self.DDtoLonDMS)
+            
+        
+    def latDMStoDD(self):
+        latdeg=float(self.sbLatD.value())
+        latmin=float(self.sbLatM.value())/60
+        latsec=float(self.sbLatS.value())/3600
+        self.dsbLatDD.setValue(latdeg+latmin+latsec)
+        
+    def lonDMStoDD(self):
+        londeg=float(self.sbLonD.value())
+        lonmin=float(self.sbLonM.value())/60
+        lonsec=float(self.sbLonS.value())/3600
+        self.dsbLonDD.setValue(londeg+lonmin+lonsec)
+        
+    def DDtoLatDMS(self):
+        self.label_35.setText(str(self.dsbLatDD.value()))
+        
+    #def DDtoLonDMS(self):
+    #    a=0
