@@ -16,7 +16,7 @@
   <widget class="QTabWidget" name="tabWidget">
    <property name="geometry">
     <rect>
-     <x>30</x>
+     <x>20</x>
      <y>50</y>
      <width>451</width>
      <height>351</height>
@@ -32,10 +32,10 @@
     <widget class="QScrollBar" name="splitHorizontalScrollBar">
      <property name="geometry">
       <rect>
-       <x>260</x>
-       <y>25</y>
-       <width>160</width>
-       <height>31</height>
+       <x>180</x>
+       <y>50</y>
+       <width>261</width>
+       <height>16</height>
       </rect>
      </property>
      <property name="minimum">
@@ -60,7 +60,7 @@
     <widget class="QLabel" name="spltHorizontalBarLbl">
      <property name="geometry">
       <rect>
-       <x>150</x>
+       <x>100</x>
        <y>30</y>
        <width>91</width>
        <height>16</height>
@@ -73,7 +73,7 @@
     <widget class="QLabel" name="counterSplitHorizontalBarSliderLbl">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>20</x>
        <y>30</y>
        <width>81</width>
        <height>16</height>

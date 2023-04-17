@@ -54,6 +54,11 @@ class LatLongCalcDialog(QtWidgets.QDialog, FORM_CLASS):
         
         self.dsbLatDD.valueChanged.connect(self.DDtoLatDMS)
         #self.dsbLonDD.editingFinished.connect(self.DDtoLonDMS)
+        
+        self.splitHorizontalScrollBar.valueChanged.connect(self.shsb)
+        
+    def shsb(self):
+         self.counterSplitHorizontalBarSliderLbl.setText(str(self.splitHorizontalScrollBar.value()))
             
         
     def latDMStoDD(self):
@@ -70,6 +75,5 @@ class LatLongCalcDialog(QtWidgets.QDialog, FORM_CLASS):
         
     def DDtoLatDMS(self):
         self.label_35.setText(str(self.dsbLatDD.value()))
-        
-    #def DDtoLonDMS(self):
+    # def DDtoLonDMS(self):
     #    a=0
